@@ -9,25 +9,26 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter a month (ex. January): ");
-        String month = input.nextLine();
+        String month = input.nextLine().toUpperCase();
 
+        Month MONTH = Month.valueOf(month);
 
         // Following Code provided by Oracle Java Docs about switch and modified to fit current usage
         ArrayList<String> futureMonths = new ArrayList<String>();
 
-        switch (month) {
-            case "January":  futureMonths.add("January");
-            case "February":  futureMonths.add("February");
-            case "March":  futureMonths.add("March");
-            case "April":  futureMonths.add("April");
-            case "May":  futureMonths.add("May");
-            case "June":  futureMonths.add("June");
-            case "July":  futureMonths.add("July");
-            case "August":  futureMonths.add("August");
-            case "September":  futureMonths.add("September");
-            case "October": futureMonths.add("October");
-            case "November": futureMonths.add("November");
-            case "December": futureMonths.add("December");
+        switch (MONTH) {
+            case JANUARY:  futureMonths.add("January");
+            case FEBRUARY:  futureMonths.add("February");
+            case MARCH:  futureMonths.add("March");
+            case APRIL:  futureMonths.add("April");
+            case MAY:  futureMonths.add("May");
+            case JUNE:  futureMonths.add("June");
+            case JULY:  futureMonths.add("July");
+            case AUGUST:  futureMonths.add("August");
+            case SEPTEMBER:  futureMonths.add("September");
+            case OCTOBER: futureMonths.add("October");
+            case NOVEMBER: futureMonths.add("November");
+            case DECEMBER: futureMonths.add("December");
                 break;
             default: break;
         }
@@ -35,6 +36,8 @@ public class Main {
         if (futureMonths.isEmpty()) {
             System.out.println("Invalid month number");
         } else {
+            System.out.println("The month you selected was " + MONTH.getEnglishName());
+            System.out.println("The rest of the months of the year are: ");
             for (String monthName : futureMonths) {
                 System.out.println(monthName);
             }
